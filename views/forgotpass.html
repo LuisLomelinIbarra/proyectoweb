@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ForgotPassword</title>
+</head>
+<body>
+    <script>
+        
+        async function sha256(message) {
+
+            // encode as UTF-8
+            const msgBuffer = new TextEncoder('utf-8').encode(message);
+
+            // hash the message
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+            // convert ArrayBuffer to Array
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+            // convert bytes to hex string
+            const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+            return hashHex;
+        }
+
+        function resetpassword(form){
+            console.log("Submit was hit");
+            var usr = form.username.value;
+            var pwd1 = form.password1.value;
+            var pwd2 = form.password2.value;
+            sha256(pwd1).then(hash =>{
+                enpwd1 = hash;
+                sha256(pwd2).then(hash2 =>{
+                    enpwd2 = hash2;
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("post", "proyectoweb/controllers/forgotpass.php", true);
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            //document.getElementById("test").innerHTML = "aaa";
+                            resetResults(this);
+                            
+                        }
+                    }
+                    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xmlhttp.send("usr="+usr+"&pwd1="+enpwd1+"&pwd2="+enpwd2);
+
+
+                });
+
+            });
+        }
+        function resetResults(xmlhttp){
+            var res = document.getElementById("UpdateRes");
+            
+            res.innerHTML = xmlhttp.responseText;
+        }
+
+        window.addEventListener("load", function() {
+            
+            window.addEventListener("submit", function() {
+                var resetform = document.getElementById("FPassForm");
+                resetpassword(resetform);
+            });
+        });
+    </script>
+
+    <h1>ForgotPassword</h1>
+    <div>
+        <form id="FPassForm" onsubmit="return false">
+            <label for="username">User's Mail:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password1">New Password:</label>
+            <input type="password" id="password1" name="password1" required><br><br>
+            
+            <label for="password2">Confirm Password:</label>
+            <input type="password" id="password2" name="password2" required><br><br>
+            <input type="submit" value="Reset"><br><br>
+            
+            <div id="UpdateRes">
+                
+            </div>
+            
+        </form>
+        
+    </div>
+</body>
+</html>
