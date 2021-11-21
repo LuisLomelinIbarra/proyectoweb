@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Profile</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/styles.css">
+
+    <style>
+        .container {
+          width: 1900px;
+          height: 800px;
+
+          font-family: 'Quicksand', sans-serif;
+          font-weight: bold;
+          font-size: 20px;
+
+          display: grid;
+          grid-template-columns: 470px 470px 1fr;
+          grid-template-rows: 1fr 1fr;
+
+          gap: 40px;
+        }
+        .container div{
+          padding: 0px;
+        }
+        .header{
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 1;
+          grid-row-end: 2;
+        }
+        .story{
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 2;
+          grid-row-end: 3;
+        }
+        .dogInfo{
+          grid-column-start: 2;
+          grid-column-end: 4;
+          grid-row-start: 2;
+          grid-row-end: 3;
+        }
+        .contact{
+          grid-column-start: 2;
+          grid-column-end: 4;
+          grid-row-start: 1;
+          grid-row-end: 2;
+        }
+       
+    </style>
+</head>
+<body style="background-color: #fff1ea">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="Assets/logo.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
+          </a>
+          <strong style="font-size:20px;">AmiGo!</strong>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 16%;">
+            <ul class="navbar-nav">
+              <li class="nav-item" style="margin-right: 5px;">
+                <a class="nav-link active" aria-current="page" href="#" style="font-size: 19px;">
+                    <img src="Assets/dog.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+                    Perros
+                </a>
+              </li>
+
+              <li class="nav-item" style="margin-right: 5px;">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="font-size: 19px;">|</a>
+              </li>
+
+              <li class="nav-item" style="margin-right: 5px;">
+                <a class="nav-link active" href="#"  style="font-size: 19px;"> 
+                    <img src="Assets/cat.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+                    Gatos
+                </a>
+              </li>
+
+              <li class="nav-item" style="margin-right: 5px;">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="font-size: 19px;">|</a>
+              </li>
+
+              <li class="nav-item" style="margin-right: 5px;">
+                <a class="nav-link active" href="#"  style="font-size: 19px;">
+                    <img src="Assets/bird.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+                    Aves
+                </a>
+              </li>
+
+              <li class="nav-item" style="margin-right: 5px;">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="font-size: 19px;">|</a>
+              </li>
+              
+              <li class="nav-item" style="margin-right: 5px;">
+                <a class="nav-link active" href="#"  style="font-size: 19px;">
+                    <img src="Assets/rat.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+                    Roedores
+                </a>
+              </li>
+              <li class="nav-item" style="margin-left: 250px;">
+                <a class="nav-link active" href="#"  style="font-size: 18px;">
+                    <button>Messages 
+                        <img src="Assets/email.png" alt="" width="22" height="22" class="d-inline-block align-text-bottom">
+                    </button>
+                </a>
+              </li>
+              <li class="nav-item" style="margin-left: 90px;">
+                <a class="nav-link active" href="#">
+                    <img src="Assets/account.png" alt="" width="37" height="37" class="d-inline-block align-text-bottom">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="header" style="margin-top: 15%;">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="Assets/pet1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="Assets/pet2.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="Assets/pet3.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact" style="margin-top: 19%;">
+          <div style="margin-bottom: 7%; font-size: 30px; margin-left: 10%;">
+            <strong>Lucky Conner</strong>
+          </div>
+          <div class="card">
+            <div class="card-header" style="font-size: 18px;">
+
+              <a style="margin-left: 2%; font-family:Arial, Helvetica, sans-serif">
+                <img src="Assets/organization.png" width="21px" height="21px" class="d-inline-block align-text-bottom">
+                Organization Contact</a>
+            </div>
+            <div class="card-body" style="background-color: rgb(252, 252, 252)">
+              <p style="margin-top: 2%;">
+              <a style="margin-left: 8%; color: rgb(29, 115, 245); font-size: 16px;">
+                Bideawee Inc. Manhattan
+              </a>
+              <br />
+              <a style="margin-left: 8%;;font-size: 16px;"> 
+                (866) 262-8133
+              </a>
+              <br />
+              <a style="margin-left: 8%;font-size: 16px;"> 
+                410 E. 38th St. between 1st Ave. 
+                <button type="button" class="btn btn-light" style="background-color: rgb(221, 220, 220); margin-left: 13%;">
+                  <img src="Assets/email.png" width="18px" height="18px">
+                  Send Question
+                </button>
+              </a>
+              <br />
+              <a style="margin-left: 8%;font-size: 16px;"> 
+                New York, NY 10016
+              </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="story">
+            <strong style="font-size: 23px;">Lucky's Story</strong>
+            <div style="margin-left: 5%; margin-top: 3%; font-size: 19px;">qwertyuiopwertyuityuiortyuiotyuiopop</div>
+            <div style="margin-left: 5%; margin-top: 3%; font-size: 19px;">qwertyuiopwertyuityuiortyuiotyuiopop</div>
+            <div style="margin-left: 5%; margin-top: 3%; font-size: 19px;">qwertyuiopwertyuityuiortyuiotyuiopop</div>
+            <div style="margin-left: 5%; margin-top: 3%; font-size: 19px;">qwertyuiopwertyuityuiortyuiotyuiopop</div>
+            <div style="margin-left: 5%; margin-top: 3%; font-size: 19px;">qwertyuiopwertyuityuiortyuiotyuiopop</div>
+            <div style="margin-left: 5%; margin-top: 3%; font-size: 19px;">qwertyuiopwertyuityuiortyuiotyuiopop</div>
+        </div>
+        <div class="dogInfo" style="margin-left: 10%;">
+          <table class="table table-hover" style="font-size: 18px;">
+            <thead>
+              <tr>
+                <th scope="col" style="text-align: center;">Labrador</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Gender:</th>
+                <td>Male</td>
+              </tr>
+              <tr>
+                <th scope="row">Age range:</th>
+                <td>2 years old</td>
+              </tr>
+              <tr>
+                <th scope="row">Breed type:</th>
+                <td colspan="2">Labrador</td>
+              </tr>
+              <tr>
+                <th scope="row">Color:</th>
+                <td colspan="2">Golden</td>
+              </tr>
+              <tr>
+                <th scope="row">Compatibility:</th>
+                <td colspan="2">Ok with dogs and kids.</td>
+              </tr>
+              <tr>
+                <th scope="row">Vaccinated:</th>
+                <td colspan="2">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</body>
+</html>

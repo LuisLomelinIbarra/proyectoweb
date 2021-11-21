@@ -1,8 +1,8 @@
 <?php
 
 $servername = "localhost";
-$username = "student_dummy";
-$password = "C00lPass1!";
+$username = "root";
+$password = "";
 $dbname = "dawdb";
 
 try {

@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../resources/style1.css">
     <title>ForgotPassword</title>
 </head>
 <body>
@@ -65,27 +64,25 @@
         });
     </script>
 
-    <div class="center">
-        <h1>Forgot Password</h1>
-        <form id="FPassForm" onsubmit="return false" method="post">
-            <div class="txt_field">
-                <input type="text" id="username" name="username" required><br><br>
-                <span></span>
-                <label for="username">User's Mail</label>
-            </div>
-            <div class="txt_field">
-                <input type="password" id="password1" name="password1" required><br><br>
-                <span></span>
-                <label for="password1">New Password</label>
-            </div>
-            <div class="txt_field">
-                <input type="password" id="password2" name="password2" required><br><br>
-                <span></span>
-                <label for="password2">Confirm Password</label>
-            </div>
+    <h1>ForgotPassword</h1>
+    <div>
+        <form id="FPassForm" onsubmit="return false">
+            <label for="username">User's Mail:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password1">New Password:</label>
+            <input type="password" id="password1" name="password1" required><br><br>
+            
+            <label for="password2">Confirm Password:</label>
+            <input type="password" id="password2" name="password2" required><br><br>
             <input type="submit" value="Reset"><br><br>
-            <div id="UpdateRes"></div>
+            
+            <div id="UpdateRes">
+                
+            </div>
+            
         </form>
+        
     </div>
 </body>
 </html>

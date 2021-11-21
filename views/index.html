@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>AmiGo!🐶</title>
+    <link rel="stylesheet" href="../resources/style1.css">
+  </head>
+  <body>
+    <script>
+      async function sha256(message) {
+
+        // encode as UTF-8
+        const msgBuffer = new TextEncoder('utf-8').encode(message);
+
+        // hash the message
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+        // convert ArrayBuffer to Array
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+        // convert bytes to hex string
+        const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+        return hashHex;
+      }
+
+
+      function login(form){
+        console.log("Submit was hit");
+        var usr = form.username.value;
+        var pwd = form.password.value;
+
+        sha256(pwd).then(hash => {
+          enpwd = hash;
+            
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("post", "login.php", true);
+          xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              //document.getElementById("test").innerHTML = "aaa";
+              loginResults(this);     
+            }
+          }
+          xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          xmlhttp.send("usr="+usr+"&pwd="+enpwd);
+        });
+      }
+
+      function loginResults(xmlhttp){
+        var loggedin = document.getElementById("LoginRes");
+
+        loggedin.innerHTML = xmlhttp.responseText;
+        if(xmlhttp.responseText == "Login successful"){
+            window.location.href="/proyectoweb/index.php";
+        }
+      }
+
+      window.addEventListener("load", function() {
+
+        window.addEventListener("submit", function() {
+          var loginForm = document.getElementById("LoginForm");
+          login(loginForm);
+        });
+      });
+    </script>
+    <div class="title">
+      <img src="../resources/assets/logo.png" alt="logo">
+      <h1>AmiGo!</h1>
+    </div>
+    <div class="center">
+      <h1>Iniciar Sesión</h1>
+      <form id="LoginForm" onsubmit="return false" method="post">
+        <div class="txt_field">
+          <input type="text" id="username" name="username" required>
+          <span></span>
+          <label for="username">Nombre de Usuario</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" id="password" name="password" required>
+          <span></span>
+          <label for="password">Contraseña</label>
+        </div>
+        <div class="pass">
+          <a href="./forgotpass.html">¿Olvidaste tu contraseña?</a> 
+        </div>
+        <input type="submit" value="Login">
+        <div class="signup_link">
+          ¿No tienes una cuenta? <a href="./register.html">Registrate</a>
+        </div>
+        <div id="LoginRes"></div>
+      </form>
+    </div>
+
+  </body>
+</html>

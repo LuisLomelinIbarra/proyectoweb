@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../resources/style1.css">
     <title>Register</title>
 </head>
 <body>
@@ -77,46 +76,36 @@
         });
     </script>
 
-    <div class="center">
-        <h1>Sign Up</h1>
-        <form id="signupForm" onsubmit="return false" method="post" enctype="multipart/form-data">
-            <div class="txt_field">
-                <input type="text" id="fullname" name="fullname" required><br><br>
-                <span></span>
-                <label for="fullname">Full Name</label>
-            </div>
-            <div class="txt_field">
-                <input type="text" id="username" name="username" required><br><br>
-                <span></span>
-                <label for="username">Username</label>
-            </div>
-            <div class="txt_field">
-                <input type="number" id="age" name="age" required><br><br>
-                <span></span>
-                <label for="age">Age</label>
-            </div>
-            <div class="txt_field">
-                <input type="number" id="phone" name="phone" required><br><br>
-                <span></span>
-                <label for="phone">Phone</label>
-            </div>
-            <div class="txt_field">
-                <input type="text" id="email" name="email" required><br><br>
-                <span></span>
-                <label for="email">Email</label>
-            </div>
-            <div class="txt_field">
-                <input type="password" id="password" name="password" required><br><br>
-                <span></span>
-                <label for="password">Password</label>
-            </div>
-            <div class="txt_field">
-                <input type="file" id="profpic" name="profpic" accept="image/*"><br><br>
-                <span></span>
-                <label for="profpic">Profile</label>
-            </div>
+    <h1>Sign Up</h1>
+    <div>
+        <form id="signupForm" onsubmit="return false" method="POST" enctype="multipart/form-data">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required><br><br>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br><br>
+
+            <label for="phone">Phone:</label>
+            <input type="number" id="phone" name="phone" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <label for="profpic">Profile</label>
+            <input type="file" id="profpic" name="profpic" accept="image/*"><br><br>
+
             <input type="submit" value="Sign Up"><br><br>
-            <div id="signupRes"></div>
+            
+            <div id="signupRes">
+                
+            </div>
+            
         </form>
         
     </div>
