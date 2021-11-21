@@ -34,7 +34,7 @@
                 sha256(pwd2).then(hash2 =>{
                     enpwd2 = hash2;
                     var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.open("post", "proyectoweb/controllers/forgotpass.php", true);
+                    xmlhttp.open("post", "forgotpass.php", true);
                     xmlhttp.onreadystatechange = function () {
                         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                             //document.getElementById("test").innerHTML = "aaa";
