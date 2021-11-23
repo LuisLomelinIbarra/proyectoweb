@@ -99,7 +99,7 @@
           <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 16%;">
             <ul class="navbar-nav">
               <li class="nav-item" style="margin-right: 5px;">
-                <a class="nav-link active" aria-current="page" href="#" style="font-size: 19px;">
+                <a class="nav-link active" aria-current="page" href="./pet_Profile.php" style="font-size: 19px;">
                     <img src="../resources/Assets/dog.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
                     Perros
                 </a>
@@ -138,15 +138,16 @@
                 </a>
               </li>
               <li class="nav-item" style="margin-left: 250px;">
-                <a class="nav-link active" href="#"  style="font-size: 18px;">
-                    <button>Messages 
+                <a class="nav-link active" href="./post_Pet.php"  style="font-size: 18px;">
+                    <button>Agregar Mascota 
                         <img src="../resources/Assets/email.png" alt="" width="22" height="22" class="d-inline-block align-text-bottom">
                     </button>
                 </a>
               </li>
               <li class="nav-item" style="margin-left: 90px;">
                 <a class="nav-link active" href="#">
-                    <img src="../resources/Assets/account.png" alt="" width="37" height="37" class="d-inline-block align-text-bottom">
+                     <?php $username = $user_data['usr_username'];echo "<img src='$rest' alt='' width='37' height='37' class='d-inline-block align-text-bottom'>"?>
+                                                                            
                 </a>
               </li>
             </ul>
@@ -156,7 +157,7 @@
 
       <div class="container">
         <div class="header" style="margin-top: 10%;">
-          <img src="../resources/Assets/user.png" width="300px" height="300px" onclick="enlargeImg()" id="img">
+          <?php $username = $user_data['usr_username']; echo "<img src='$rest' width='300px' height='300px' onclick='enlargeImg()' id='img'>" ?>
           
         </div>
 
@@ -180,25 +181,25 @@
         </div>
 
         <div class="infoUser" style="margin-top: 13%;">
-          <a style="font-size: 35px; font-weight: bold;">Jeremy Rose</a>
+          <a style="font-size: 35px; font-weight: bold;"><?php echo $user_data['usr_name']; ?></a>
         </div>
 
         <div class="edad" style="margin-top: 20%; font-size: 21px;">
-          27 años
+          <?php echo $user_data['usr_age']; ?> años
         </div>
 
-        <div class="button">
+        <!--<div class="button">
           <button type="button" class="btn btn-primary" style="margin-top: 15%;">
             <img src="../resources/Assets/message.png" width="25" height="20" class="d-inline-block align-text-bottom">
             <a style="font-size: 17px;">Send Message</a>
           </button>
-        </div>
+        </div>-->
         <div class="historial">
           <strong style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Historial de adopcion -------- </strong>
           <div style="margin-top: 4%; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 17px;">    
-          <div style="margin-bottom: 7%;">• qwertyuiopqwertyuiopqwerty</div>
-          <div style="margin-bottom: 7%;">• qwertyuiopqwertyuiopqwerty</div>
-          <div style="margin-bottom: 7%;">• qwertyuiopqwertyuiopqwerty</div>
+          <div style="margin-bottom: 7%;">• Mato a un perro a sangre fria</div>
+          <div style="margin-bottom: 7%;">• Vendio 47 perros</div>
+          <div style="margin-bottom: 7%;">• Adopto 1 gato</div>
           </div>
         </div>
 
@@ -210,11 +211,11 @@
           </a>
           <div style="margin-top: 4%; margin-left: 2%; font-size: 19px;">
             Phone: 
-            <a style="color: rgb(29, 115, 245);">+52 899 210 7457</a>
+            <a style="color: rgb(29, 115, 245);"><?php echo $user_data['usr_phone']; ?></a>
           </div>
           <div style="margin-top: 4%; margin-left: 2%; font-size: 19px;">
             Email:
-            <a style="color: rgb(29, 115, 245);">jeremyrose@gmail.com</a>
+            <a style="color: rgb(29, 115, 245);"><?php echo $user_data['usr_email']; ?></a>
           </div>
         </div>
         <div class='edit'>
