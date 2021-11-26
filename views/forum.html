@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../resources/forum.css">
     <title>Forum</title>
     <link rel = "icon" href ="../resources/Assets/logo.png" type = "image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <input type="radio" name="photos" id="check1" checked>
@@ -36,9 +37,9 @@
             </label>
         </div>
 
-        <div class="photo-gallery">
-            <div class="pic dog">
-                <a href="./pet_Profile.php"><img src="./Assets/pet2.jpg" alt=""></a>
+        <div class="photo-gallery" id="gallery">
+            <!-- <div class="pic dog">
+                <a href="./pet_Profile.php"><img src="../resources/Assets/pet2.jpg" alt="Hola"></a>
             </div>
             <div class="pic dog">
                 <a href="./petProfile.html"><img src="./Assets/dog1.jpg" alt=""></a>
@@ -63,8 +64,12 @@
             </div>
             <div class="pic dog">
                 <a href="./petProfile.html"><img src="./Assets/dog3.jpg" alt=""></a>
-            </div>
+            </div> -->
         </div>
     </div>
+    <script>
+        var url = "../resources/Scripts/forum.js";
+        $.getScript(url);
+    </script>
 </body>
 </html>
