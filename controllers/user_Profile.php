@@ -11,9 +11,17 @@
 
     if ($success) {
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $profile_img = $row["usr_dir"];
-        $rest = ".." . substr($profile_img, 27);
+        if(!isset($row["usr_dir"]) || $row["usr_dir"] == '-' ){
+            $rest = "../resources/Assets/account.png";
+        }else{
+            $profile_img = $row["usr_dir"];
+            $rest = ".." . substr($profile_img, 27);
+        }
+        var_dump($rest);
+        
     }
+
+    
 
 
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/views/userProfile.html");

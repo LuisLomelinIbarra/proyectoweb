@@ -14,6 +14,11 @@
         $profile_img = $row["usr_dir"];
         $rest = ".." . substr($profile_img, 27);
     }
+    
+    include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/API/read_pet.php");
+    $userid = $pet['pet_posterid'];
+    include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/API/read_user.php");
+    
 
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/views/petProfile.html");
 

@@ -70,6 +70,7 @@
             <div class="dropdown-content">
               <a href="./user_Profile.php" style="font-size: 16px;">My profile</a>
               <a href="./post_Pet.php" style="font-size: 16px;">Create pet profile</a>
+              <a href="./logout.php" style="font-size: 16px;"> Log out</a>
             </div>
         </label>
       </div>
@@ -84,14 +85,16 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="../resources/Assets/pet1.png" class="d-block w-100" alt="...">
+                <?php 
+                  $img =  (".." . substr($pet['pet_dir'], 27));
+                  echo "<img src='$img' class='d-block w-100' alt='...'>"; ?>
               </div>
-              <div class="carousel-item">
+              <!--<div class="carousel-item">
                 <img src="../resources/Assets/pet2.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
                 <img src="../resources/Assets/pet3.jpg" class="d-block w-100" alt="...">
-              </div>
+              </div>-->
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -106,80 +109,68 @@
 
         <div class="contact" style="margin-top: 19%;">
           <div style="margin-bottom: 7%; font-size: 30px; margin-left: 10%;">
-            <strong>Lucky Conner</strong>
+            <strong><?php echo $pet['pet_name'] ;?></strong>
           </div>
           <div class="card">
             <div class="card-header" style="font-size: 18px;">
 
               <a style="font-family:Arial, Helvetica, sans-serif;">
                 <img src="../resources/Assets/organization.png" width="21px" height="21px" class="d-inline-block align-text-bottom">
-                Organization Contact</a>
+                Poster Contact</a>
             </div>
             <div class="card-body" style="background-color: rgb(252, 252, 252)">
               <p style="margin-top: 2%; margin-left: 8%; font-size: 16px; text-align: left;">
                 <a style=" color: rgb(29, 115, 245);">
-                  Bideawee Inc. Manhattan
+                  <?php echo $result['usr_name']; ?>
                 </a>
                 <br />
-                (866) 262-8133
+                <?php echo $result['usr_phone']; ?>
                 <br />
-                410 E. 38th St. between 1st Ave. 
+                <?php echo $result['usr_email']; ?>
                 <br />
-                New York, NY 10016
               </p>
             </div>
           </div>
         </div>
 
         <div class="story">
-            <strong style="font-size: 23px;">Lucky's Story</strong>
+            <strong style="font-size: 23px;"><?php echo $pet['pet_name']; ?>'s Story</strong>
             <p style="margin-left: 5%; margin-top: 3%; font-size: 19px;">
-              qwertyuiopwertyuityuiortyuiotyuiopop
-              <br />
-              qwertyuiopwertyuityuiortyuiotyuiopop
-              <br />
-              qwertyuiopwertyuityuiortyuiotyuiopop
-              <br />
-              qwertyuiopwertyuityuiortyuiotyuiopop
-              <br />
-              qwertyuiopwertyuityuiortyuiotyuiopop
-              <br />
-              qwertyuiopwertyuityuiortyuiotyuiopop
-              <br />
+              <?php echo $pet['pet_story']; ?>
             </p>
         </div>
         <div class="dogInfo" style="margin-left: 10%;">
           <table class="table table-hover" style="font-size: 18px;">
             <thead>
               <tr>
-                <th scope="col" style="text-align: center;">Labrador</th>
+                <th scope="col" style="text-align: center;"><?php echo $pet['pet_type']; ?></th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">Gender:</th>
-                <td>Male</td>
+                <td><?php echo $pet['pet_gender']; ?></td>
               </tr>
               <tr>
                 <th scope="row">Age range:</th>
-                <td>2 years old</td>
+                <td><?php echo $pet['pet_age']; ?> years old</td>
               </tr>
               <tr>
                 <th scope="row">Breed type:</th>
-                <td colspan="2">Labrador</td>
+                <td colspan="2"><?php echo $pet['pet_breed']; ?></td>
               </tr>
               <tr>
                 <th scope="row">Color:</th>
-                <td colspan="2">Golden</td>
+                <td colspan="2"><?php echo $pet['pet_color']; ?></td>
               </tr>
               <tr>
                 <th scope="row">Compatibility:</th>
-                <td colspan="2">Ok with dogs and kids.</td>
+                <td colspan="2"><?php echo $pet['compatibility']; ?></td>
               </tr>
               <tr>
                 <th scope="row">Vaccinated:</th>
-                <td colspan="2">Yes</td>
+                <td colspan="2"><?php echo ($pet['isVaccinated']) ? "Yes":"No"; ?></td>
               </tr>
             </tbody>
           </table>

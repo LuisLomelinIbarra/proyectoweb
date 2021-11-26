@@ -111,6 +111,9 @@ function signupResults(xmlhttp){
     var res = document.getElementById("signupRes");
     
     res.innerHTML = xmlhttp.responseText;
+    if (xmlhttp.responseText == "User Created"){
+        window.location.href="/proyectoweb/controllers/log_in.php";
+    }
 }
 
 window.addEventListener("load", function() {

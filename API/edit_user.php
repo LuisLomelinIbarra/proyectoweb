@@ -25,9 +25,22 @@
 	$query = "UPDATE userinfo SET usr_name='$name',usr_age='$age',usr_phone='$phone',usr_email='$email' WHERE usr_id=$id;";
     $statement = $conn->prepare($query);
     $success = $statement->execute();
-    if($success)
+    if($success){
         echo "success";
-    else {
+                $uploaddir = $_SERVER['DOCUMENT_ROOT']."/proyectoweb/photos/user/" . $user_data['usr_username'] .'/';
+                $table = "photosuser";
+                $uploadfile = $uploaddir . basename($_FILES['picture']['name']);
+                //echo $uploaddir;
+                move_uploaded_file($_FILES['picture']['tmp_name'], $uploadfile);
+                $query = "UPDATE $table set usr_dir='$uploadfile' where usr_id = '$id' and usr_photoname ='profpic';";
+                $statement = $conn->prepare($query);
+                $success = $statement->execute();
+                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                
+                
+                
+                
+    }else {
         echo "FALLO";
     }
     header("Location: ../controllers/user_Profile.php");

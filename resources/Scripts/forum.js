@@ -20,10 +20,10 @@ $(document).ready(function(){
                 newEntry.setAttribute("class", ("pic "+ entradasJS[i]["type"]));
 
                 var newEntryCard = document.createElement("a");
-                newEntryCard.setAttribute("href", "./pet_Profile.php");
+                newEntryCard.setAttribute("href", "./pet_Profile.php?id="+entradasJS[i]["id"]);
 
                 var newImg = document.createElement("img");
-                newImg.setAttribute("src", "../resources/Assets/pet2.jpg");
+                newImg.setAttribute("src", entradasJS[i]["img"]);
 
                 /* appends */
 

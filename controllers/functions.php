@@ -19,7 +19,7 @@ function check_login($conn){
         }
     }
 
-    header("Location: controllers/log_in.php");
+    header("Location: log_in.php");
     die;
 
 }

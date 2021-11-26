@@ -30,9 +30,24 @@
 	$query = "INSERT INTO petinfo (pet_posterid, pet_name, pet_age, pet_type, pet_breed, pet_color, pet_story, isVaccinated, compatibility, pet_gender) VALUES ('$pet_posterid', '$name', '$age', '$type', '$breed', '$color', '$hist', '$vacc', '$compt', '$gender')";
     $statement = $conn->prepare($query);
     $success = $statement->execute();
-    if($success)
+    if($success){
         echo "success";
-    else {
+        $uploaddir = $_SERVER['DOCUMENT_ROOT']."/proyectoweb/photos/user/" . $user_data['usr_username'].'/';
+        $table = 'petinfo';
+        $query = "select * from $table where pet_posterid = '$pet_posterid' limit 1";
+        $statement = $conn->prepare($query);
+        $success = $statement->execute();
+        $row = $statement->fetch(PDO::FETCH_ASSOC);      
+        $petid = $row['pet_id'];
+        $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
+        //echo $uploaddir;
+        move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
+        
+        $table = "photopet";
+        $query = "insert into $table (pet_id,pet_photoname,pet_dir) values ('$petid','photo','$uploadfile');";
+        $statement = $conn->prepare($query);
+        $success = $statement->execute();
+    }else {
         echo "FALLO";
     }
     header("Location: ../controllers/post_Pet.php");

@@ -15,6 +15,8 @@
         $rest = ".." . substr($profile_img, 27); 
     }
 
+    
+
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/views/forum.html");
 
 ?>

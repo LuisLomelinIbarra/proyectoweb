@@ -45,6 +45,19 @@ if ($success){
                 $query = "insert into $table (usr_id,usr_photoname,usr_dir) values ('$usrid','profpic','$uploadfile');";
                 $statement = $conn->prepare($query);
                 $success = $statement->execute();
+            }else{
+                $uploaddir = $_SERVER['DOCUMENT_ROOT']."/proyectoweb/photos/user/" . $usr.'/';
+                mkdir($uploaddir, 0777, true);
+                $query = "select * from $table where usr_username = '$usr' limit 1";
+                $statement = $conn->prepare($query);
+                $success = $statement->execute();
+                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                
+                $usrid = $row['usr_id'];
+                $table = "photosuser";
+                $query = "insert into $table (usr_id,usr_photoname,usr_dir) values ('$usrid','profpic','-');";
+                $statement = $conn->prepare($query);
+                $success = $statement->execute();
             }
             
             echo "User Created";

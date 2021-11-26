@@ -28,6 +28,7 @@
             <div class="dropdown-content">
                 <a href="./user_Profile.php" style="font-size: 16px;">My profile</a>
                 <a href="./post_Pet.php" style="font-size: 16px;">Create pet profile</a>
+                <a href="./logout.php" style="font-size: 16px;"> Log out</a>
             </div>
         </label>
     </div>
@@ -36,7 +37,7 @@
         <strong>Pet's Information</strong>
     </p>
 
-    <form action="../API/create_pet.php" method="post" style="margin-top:2%">
+    <form action="../API/create_pet.php" method="post" style="margin-top:2%" enctype="multipart/form-data">
         <div style="margin-left: 30%; margin-right: 20%">
             <div class="form-row">
                 <div class="form-group" style="width: 30%; margin-right: 5px;">
@@ -110,7 +111,7 @@
 
             <div class="form-group">
                 <a for="exampleFormControlFile1">Pet's picture</a>
-                <input type="file" class="form-control-file" name="photo" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" name="photo" id="photo" accept="image/*">
             </div>
             <br />
         </div>
