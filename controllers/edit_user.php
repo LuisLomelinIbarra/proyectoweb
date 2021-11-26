@@ -12,9 +12,10 @@
     if ($success) {
         $row = $statement->fetch(PDO::FETCH_ASSOC);
         $profile_img = $row["usr_dir"];
-        $rest = ".." . substr($profile_img, 27); 
+        $rest = ".." . substr($profile_img, 27);
     }
 
-    include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/views/forum.html");
+
+    include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/views/editUser.html");
 
 ?>

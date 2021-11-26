@@ -6,77 +6,6 @@
     <title>Register</title>
 </head>
 <body>
-    <script>
-        async function sha256(message) {
-
-           // encode as UTF-8
-           const msgBuffer = new TextEncoder('utf-8').encode(message);
-
-           // hash the message
-           const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-
-           // convert ArrayBuffer to Array
-           const hashArray = Array.from(new Uint8Array(hashBuffer));
-
-           // convert bytes to hex string
-           const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
-           return hashHex;
-       }       
-
-       function signup(form){
-           console.log("Submit was hit");
-           
-           
-           var formData = new FormData(form);
-           var usr = form.username.value;
-           var pwd = form.password.value;
-           var email = form.email.value;
-           var age = form.age.value;
-           var phone = form.phone.value;
-           var img = form.profpic.value;
-           
-           
-
-           sha256(pwd).then(hash => {
-               enpwd = hash;
-               var xmlhttp = new XMLHttpRequest();
-               formData.append('usr',usr);
-               formData.append("pwd",enpwd);
-               formData.append("email",email);
-               formData.append("age",age);
-               formData.append("phone",phone);
-               formData.append("img",img);
-               xmlhttp.open("POST", "register.php", true);
-               xmlhttp.onreadystatechange = function () {
-                   if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                       //document.getElementById("test").innerHTML = "aaa";
-                       signupResults(this);
-                       
-                   }
-               }
-               //xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-               //xmlhttp.setRequestHeader("Content-type","multipart/form-data");
-               //xmlhttp.send("usr="+usr+"&pwd="+enpwd+"&email="+email+"&age="+age+"&phone="+phone+"&profpic="+img);
-               xmlhttp.send(formData);
-               //xmlhttp.send(new FormData(form));
-           });
-           
-       }
-       function signupResults(xmlhttp){
-           var res = document.getElementById("signupRes");
-           
-           res.innerHTML = xmlhttp.responseText;
-       }
-
-       window.addEventListener("load", function() {
-           
-           window.addEventListener("submit", function() {
-               var signupForm = document.getElementById("signupForm");
-               signup(signupForm);
-           });
-       });
-   </script>
-
     <div class="center">
         <h1>Sign Up</h1>
         <form id="signupForm" onsubmit="return false" method="post" enctype="multipart/form-data">
@@ -121,4 +50,75 @@
         
     </div>
 </body>
+
+<script>
+    async function sha256(message) {
+
+       // encode as UTF-8
+    const msgBuffer = new TextEncoder('utf-8').encode(message);
+
+       // hash the message
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+       // convert ArrayBuffer to Array
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+       // convert bytes to hex string
+    const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+    return hashHex;
+}       
+
+function signup(form){
+    console.log("Submit was hit");
+    
+    
+    var formData = new FormData(form);
+    var usr = form.username.value;
+    var pwd = form.password.value;
+    var email = form.email.value;
+    var age = form.age.value;
+    var phone = form.phone.value;
+    var img = form.profpic.value;
+    
+    
+
+    sha256(pwd).then(hash => {
+        enpwd = hash;
+        var xmlhttp = new XMLHttpRequest();
+        formData.append('usr',usr);
+        formData.append("pwd",enpwd);
+        formData.append("email",email);
+        formData.append("age",age);
+        formData.append("phone",phone);
+        formData.append("img",img);
+        xmlhttp.open("POST", "register.php", true);
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //document.getElementById("test").innerHTML = "aaa";
+                signupResults(this);
+                
+            }
+        }
+        //xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //xmlhttp.setRequestHeader("Content-type","multipart/form-data");
+        //xmlhttp.send("usr="+usr+"&pwd="+enpwd+"&email="+email+"&age="+age+"&phone="+phone+"&profpic="+img);
+        xmlhttp.send(formData);
+        //xmlhttp.send(new FormData(form));
+    });
+    
+}
+function signupResults(xmlhttp){
+    var res = document.getElementById("signupRes");
+    
+    res.innerHTML = xmlhttp.responseText;
+}
+
+window.addEventListener("load", function() {
+    
+    window.addEventListener("submit", function() {
+        var signupForm = document.getElementById("signupForm");
+        signup(signupForm);
+    });
+});
+</script>
 </html>

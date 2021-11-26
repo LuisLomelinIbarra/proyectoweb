@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 26, 2021 at 02:20 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Servidor: localhost
+-- Tiempo de generación: 26-11-2021 a las 05:40:07
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dawdb`
+-- Base de datos: `dawdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `adoptedpets`
+-- Estructura de tabla para la tabla `adoptedpets`
 --
 
 CREATE TABLE `adoptedpets` (
@@ -36,27 +36,36 @@ CREATE TABLE `adoptedpets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `petinfo`
+-- Estructura de tabla para la tabla `petinfo`
 --
 
 CREATE TABLE `petinfo` (
   `pet_id` bigint(20) NOT NULL,
   `pet_posterid` bigint(20) NOT NULL,
-  `pet_name` int(11) NOT NULL,
+  `pet_name` varchar(30) NOT NULL,
   `pet_age` int(11) NOT NULL,
-  `pet_type` varchar(2000) NOT NULL,
-  `pet_breed` varchar(2000) NOT NULL,
+  `pet_type` varchar(10) NOT NULL,
+  `pet_breed` varchar(30) NOT NULL,
+  `pet_color` varchar(10) NOT NULL,
+  `pet_story` varchar(200) NOT NULL,
   `isVaccinated` tinyint(1) NOT NULL DEFAULT 0,
-  `compatibility` varchar(512) NOT NULL,
-  `pet_gender` int(11) NOT NULL,
-  `pet_isAdopted` tinyint(1) NOT NULL,
+  `compatibility` varchar(200) NOT NULL,
+  `pet_gender` varchar(10) NOT NULL,
+  `pet_isAdopted` tinyint(1) NOT NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `petinfo`
+--
+
+INSERT INTO `petinfo` (`pet_id`, `pet_posterid`, `pet_name`, `pet_age`, `pet_type`, `pet_breed`, `pet_color`, `pet_story`, `isVaccinated`, `compatibility`, `pet_gender`, `pet_isAdopted`, `deleted`) VALUES
+(1, 16, 'Baltto', 1, 'Dog', 'Husky', 'Brown', 'A total disaster', 1, 'Kids and other dogs and cats', 'Male', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `photopet`
+-- Estructura de tabla para la tabla `photopet`
 --
 
 CREATE TABLE `photopet` (
@@ -69,7 +78,7 @@ CREATE TABLE `photopet` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `photosuser`
+-- Estructura de tabla para la tabla `photosuser`
 --
 
 CREATE TABLE `photosuser` (
@@ -80,7 +89,7 @@ CREATE TABLE `photosuser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `photosuser`
+-- Volcado de datos para la tabla `photosuser`
 --
 
 INSERT INTO `photosuser` (`id`, `usr_id`, `usr_photoname`, `usr_dir`) VALUES
@@ -91,7 +100,7 @@ INSERT INTO `photosuser` (`id`, `usr_id`, `usr_photoname`, `usr_dir`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userinfo`
+-- Estructura de tabla para la tabla `userinfo`
 --
 
 CREATE TABLE `userinfo` (
@@ -107,99 +116,99 @@ CREATE TABLE `userinfo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `userinfo`
+-- Volcado de datos para la tabla `userinfo`
 --
 
 INSERT INTO `userinfo` (`usr_id`, `usr_name`, `usr_age`, `usr_phone`, `usr_email`, `usr_passcode`, `usr_desc`, `usr_username`, `deleted`) VALUES
 (13, 'Luis Fernando Lomelín Ibarra', 21, '2313213124', 'luigi@email.com', 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1', '', 'Luigi', 0),
 (14, 'Pedro Infante', 80, '923198321', 'pinf@email.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '', 'pinf', 0),
 (15, 'Alicia Rodriguez', 21, '35513233', 'arod@gmail.com', 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1', '', 'arod', 0),
-(16, 'Ernesto', 21, '253462156', 'ern@email.com', 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1', '', 'ernesto', 0);
+(16, 'Ernesto', 21, '5531423581', 'er@outlook.com', 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1', '', 'ernesto', 0);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `adoptedpets`
+-- Indices de la tabla `adoptedpets`
 --
 ALTER TABLE `adoptedpets`
   ADD PRIMARY KEY (`id_adoptor`,`id_pet`),
   ADD KEY `id_pet` (`id_pet`);
 
 --
--- Indexes for table `petinfo`
+-- Indices de la tabla `petinfo`
 --
 ALTER TABLE `petinfo`
   ADD PRIMARY KEY (`pet_id`),
   ADD KEY `pet_posterid` (`pet_posterid`);
 
 --
--- Indexes for table `photopet`
+-- Indices de la tabla `photopet`
 --
 ALTER TABLE `photopet`
   ADD KEY `pet_id` (`pet_id`);
 
 --
--- Indexes for table `photosuser`
+-- Indices de la tabla `photosuser`
 --
 ALTER TABLE `photosuser`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usr_id` (`usr_id`);
 
 --
--- Indexes for table `userinfo`
+-- Indices de la tabla `userinfo`
 --
 ALTER TABLE `userinfo`
   ADD PRIMARY KEY (`usr_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `petinfo`
+-- AUTO_INCREMENT de la tabla `petinfo`
 --
 ALTER TABLE `petinfo`
-  MODIFY `pet_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `pet_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `photosuser`
+-- AUTO_INCREMENT de la tabla `photosuser`
 --
 ALTER TABLE `photosuser`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `userinfo`
+-- AUTO_INCREMENT de la tabla `userinfo`
 --
 ALTER TABLE `userinfo`
   MODIFY `usr_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `adoptedpets`
+-- Filtros para la tabla `adoptedpets`
 --
 ALTER TABLE `adoptedpets`
   ADD CONSTRAINT `adoptedpets_ibfk_1` FOREIGN KEY (`id_adoptor`) REFERENCES `userinfo` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `adoptedpets_ibfk_2` FOREIGN KEY (`id_pet`) REFERENCES `petinfo` (`pet_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `petinfo`
+-- Filtros para la tabla `petinfo`
 --
 ALTER TABLE `petinfo`
   ADD CONSTRAINT `petinfo_ibfk_1` FOREIGN KEY (`pet_posterid`) REFERENCES `userinfo` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `photopet`
+-- Filtros para la tabla `photopet`
 --
 ALTER TABLE `photopet`
   ADD CONSTRAINT `photopet_ibfk_1` FOREIGN KEY (`pet_id`) REFERENCES `petinfo` (`pet_id`);
 
 --
--- Constraints for table `photosuser`
+-- Filtros para la tabla `photosuser`
 --
 ALTER TABLE `photosuser`
   ADD CONSTRAINT `photosuser_ibfk_2` FOREIGN KEY (`usr_id`) REFERENCES `userinfo` (`usr_id`) ON DELETE CASCADE ON UPDATE CASCADE;
