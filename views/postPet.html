@@ -10,77 +10,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="../resources/forum.css">
     <style></style>
 </head>
-<body style="background-color: #fff1ea">
-     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="../resources/Assets/logo.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
-          </a>
-          <strong style="font-size:20px;">AmiGo!</strong>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+<body class="body">
 
-          <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 16%;">
-            <ul class="navbar-nav">
-              <li class="nav-item" style="margin-right: 5px;">
-                <a class="nav-link active" aria-current="page" href="#" style="font-size: 19px;">
-                    <img src="../resources/Assets/dog.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
-                    Perros
-                </a>
-              </li>
-
-              <li class="nav-item" style="margin-right: 5px;">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="font-size: 19px;">|</a>
-              </li>
-
-              <li class="nav-item" style="margin-right: 5px;">
-                <a class="nav-link active" href="#"  style="font-size: 19px;"> 
-                    <img src="../resources/Assets/cat.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
-                    Gatos
-                </a>
-              </li>
-
-              <li class="nav-item" style="margin-right: 5px;">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="font-size: 19px;">|</a>
-              </li>
-
-              <li class="nav-item" style="margin-right: 5px;">
-                <a class="nav-link active" href="#"  style="font-size: 19px;">
-                    <img src="../resources/Assets/bird.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
-                    Aves
-                </a>
-              </li>
-
-              <li class="nav-item" style="margin-right: 5px;">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="font-size: 19px;">|</a>
-              </li>
-              
-              <li class="nav-item" style="margin-right: 5px;">
-                <a class="nav-link active" href="#"  style="font-size: 19px;">
-                    <img src="../resources/Assets/rat.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
-                    Roedores
-                </a>
-              </li>
-              <li class="nav-item" style="margin-left: 250px;">
-                <a class="nav-link active" href="./forum_.php"  style="font-size: 18px;">
-                    <button>Ver Mascotas
-                        <img src="../resources/Assets/email.png" alt="" width="22" height="22" class="d-inline-block align-text-bottom">
-                    </button>
-                </a>
-              </li>
-              <li class="nav-item" style="margin-left: 90px;">
-                <a class="nav-link active" href="./user_Profile.php">
-                    <?php echo "<img src='$rest' alt='' width='37' height='37' class='d-inline-block align-text-bottom'>" ?>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <div class="top-content" style="margin-top: 4%;">
+        <h3 style="margin-top: 8px;">Photo Gallery</h3>
+        <label for="check2">
+          <img src="../resources/Assets/forum.png" alt="" width="22" height="22"> 
+          <a href="forum.html"> Forum</a>
+        </label>
+        <label class="profile dropdown">
+            <?php echo "<img src='$rest' alt='' width='19px' height='19px'>" ?>
+            
+            <a href="./user_Profile.php">Profile</a>
+            <div class="dropdown-content">
+                <a href="userProfile.html" style="font-size: 16px;">My profile</a>
+                <a href="postPet.html" style="font-size: 16px;">Create pet profile</a>
+            </div>
+        </label>
+      </div>
 
       <p style="font-size: x-large; text-align: center; margin-top: 4%;">
           <strong>Pet's Information</strong>
@@ -89,46 +39,66 @@
       <form style="margin-top:2%">
         <div style="margin-left: 30%; margin-right: 20%">
             <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputEmail4">Name</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Pet's name">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputState">Gender</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
-            </div>
-            </div>
-
-            <div class="form-row">
+                <div class="form-group" style="width: 50%;">
+                    <a for="formGroupExampleInput2">Name</a>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Pet's name">
+                </div>
                 <div class="form-group col-md-4">
-                    <label for="inputState">Breed type</label>
+                    <a for="inputState">Gender</a>
                     <select id="inputState" class="form-control">
                         <option selected>Choose...</option>
-                        <option>1</option>
-                        <option>2</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-4">
-                <label for="inputState">Color</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>1</option>
-                    <option>2</option>
+                        <option>Male</option>
+                        <option>Female</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="inputEmail4">Compatibility</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Enter your text">
+                <div class="form-group col-md-4">
+                    <a for="inputState">Breed type</a>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option><strong>Dogs ----------------</strong></option>
+                        <option>Bulldog</option>
+                        <option>Labrador</option>
+                        <option>Poodle</option>
+                        <option>Chihuahua</option>
+                        <option>Husky</option>
+                        <option>Pomeriano</option>
+                        <option>Cats -----------------</option>
+                        <option>Persa</option>
+                        <option>Bengala</option>
+                        <option>Esfinge</option>
+                        <option>Siames</option>
+                        <option>Ragdoll</option>
+                        <option>Munchkin</option>
+                        <option>Otro ---------</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
-                <label for="inputState">Vaccinated</label>
+                <a for="inputState">Color</a>
+                <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Negro</option>
+                    <option>Azul</option>
+                    <option>Café</option>
+                    <option>Gris</option>
+                    <option>Verde</option>
+                    <option>Naranja</option>
+                    <option>Blanco</option>
+                    <option>Amarillo</option>
+                    <option>Otro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group" style="width: 50%;">
+                    <a for="formGroupExampleInput2">Compatibility</a>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter your text">
+                </div>
+                <div class="form-group col-md-4">
+                <a for="inputState">Vaccinated</a>
                 <select id="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option>Yes</option>
@@ -138,24 +108,15 @@
             </div>
 
             <div class="form-group" style="width: 625px;">
-                <label for="exampleFormControlTextarea1">Pet's story</label>
+                <a for="exampleFormControlTextarea1">Pet's story</a>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlFile1">Pet's picture</label>
+                <a for="exampleFormControlFile1">Pet's picture</a>
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
             </div>
             <br />
-        </div>
-
-        <div class="form-group" style="text-align: center;">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Accept terms and conditions
-            </label>
-          </div>
         </div>
         <div style="text-align: center;"> 
             <button type="submit" class="btn btn-primary">Create pet's profile</button>

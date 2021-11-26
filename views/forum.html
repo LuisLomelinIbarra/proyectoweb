@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="forum.css">
     <title>Forum</title>
+    <link rel = "icon" href ="Assets/logo.png" type = "image/x-icon">
 </head>
 <body>
     <input type="radio" name="photos" id="check1" checked>
@@ -18,39 +19,50 @@
         <div class="top-content">
             <h3>Photo Gallery</h3>
             <label for="check1">All Pets</label>
-            <label for="check2">Dogs</label>
-            <label for="check3">Cats</label>
-            <label for="check4">Others</label>
-            <label class="profile"><a href="./userProfile.html">Profile</a></label>
+            <label for="check2"><img src="./Assets/dog.png" alt="" width="22" height="22"> Dogs</label>
+            <label for="check3"><img src="./Assets/cat.png" alt="" width="22" height="22"> Cats</label>
+            <label for="check4">
+                <img src="./Assets/bird.png" alt="" width="22" height="22">
+                <img src="./Assets/rat.png" alt="" width="22" height="22"> 
+                Others
+            </label>
+            <label class="profile dropdown">
+                <img src="./Assets/account.png" alt="" width="19px" height="19px">
+                <a href="./userProfile.html">Profile</a>
+                <div class="dropdown-content">
+                    <a href="userProfile.html" style="font-size: 16px;">My profile</a>
+                    <a href="postPet.html" style="font-size: 16px;">Create pet profile</a>
+                </div>
+            </label>
         </div>
 
         <div class="photo-gallery">
             <div class="pic dog">
-                <img src="../resources/Assets/pet1.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/pet2.jpg" alt=""></a>
             </div>
             <div class="pic dog">
-                <img src="../resources/Assets/pet2.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/dog1.jpg" alt=""></a>
             </div>
             <div class="pic cat">
-                <img src="../resources/Assets/pet3.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/cat1.jpg" alt=""></a>
             </div>
             <div class="pic cat">
-                <img src="../resources/Assets/pet2.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/cat2.jpg" alt=""></a>
             </div>
             <div class="pic other">
-                <img src="../resources/Assets/pet1.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/hamster1.jpeg" alt=""></a>
             </div>
             <div class="pic dog">
-                <img src="../resources/Assets/pet3.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/dog2.jpg" alt=""></a>
             </div>
             <div class="pic other">
-                <img src="../resources/Assets/pet2.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/bird1.jpg" alt=""></a>
             </div>
             <div class="pic cat">
-                <img src="../resources/Assets/pet1.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/cat3.jpg" alt=""></a>
             </div>
             <div class="pic dog">
-                <img src="../resources/Assets/pet3.jpg" alt="">
+                <a href="./petProfile.html"><img src="./Assets/dog3.jpg" alt=""></a>
             </div>
         </div>
     </div>
