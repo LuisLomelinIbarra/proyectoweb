@@ -86,7 +86,7 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <?php 
-                  $img =  (".." . substr($pet['pet_dir'], 27));
+                  $img =  $pet['pet_dir'];
                   echo "<img src='$img' class='d-block w-100' alt='...'>"; ?>
               </div>
               <!--<div class="carousel-item">
@@ -132,7 +132,7 @@
                 <?php echo $result['usr_email']; ?>
                 <br />
                 <button type="button" class="btn btn-light" style="background-color: rgb(204, 202, 202); margin-left: 70%; margin-top: -5%;">
-                  <?php echo (!isset($isAdopted))  ? "<a href='../api/create_adopted.php?usrid=$id&petid=$pet_id'>Adopt</a>" : "<a >Has a Home</a>";?>
+                  <?php echo (!isset($isAdopted)||!$isAdopted)  ? "<a href='../api/create_adopted.php?usrid=$id&petid=$pet_id'>Adopt</a>" : "<a >Has a Home</a>";?>
                 </button>
               </p>
               

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2021 at 01:18 AM
+-- Generation Time: Nov 27, 2021 at 05:41 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -38,6 +38,7 @@ CREATE TABLE `adoptedpets` (
 --
 
 INSERT INTO `adoptedpets` (`id_adoptor`, `id_pet`, `adoptionDate`) VALUES
+(13, 9, '2021-11-27'),
 (22, 8, '2021-11-26');
 
 -- --------------------------------------------------------
@@ -88,8 +89,8 @@ CREATE TABLE `photopet` (
 --
 
 INSERT INTO `photopet` (`id`, `pet_id`, `pet_photoname`, `pet_dir`) VALUES
-(0, 8, 'photo', 'E:/xampp/htdocs/proyectoweb/photos/user/Luigi/cat2.jpg'),
-(0, 9, 'photo', 'E:/xampp/htdocs/proyectoweb/photos/user/andy/pet3.jpg');
+(1, 8, 'photo', '../photos/user/Luigi/cat2.jpg'),
+(2, 9, 'photo', '../photos/user/andy/pet3.jpg');
 
 -- --------------------------------------------------------
 
@@ -109,10 +110,12 @@ CREATE TABLE `photosuser` (
 --
 
 INSERT INTO `photosuser` (`id`, `usr_id`, `usr_photoname`, `usr_dir`) VALUES
-(7, 13, 'profpic', 'E:/xampp/htdocs/proyectoweb/photos/user/Luigi/0144084.jpg'),
-(9, 16, 'profpic', 'E:/xampp/htdocs/proyectoweb/photos/user/ernesto/0077810.jpg'),
-(11, 21, 'profpic', 'E:/xampp/htdocs/proyectoweb/photos/user/juan/bird.png'),
-(12, 22, 'profpic', 'E:/xampp/htdocs/proyectoweb/photos/user/andy/cat.png');
+(7, 13, 'profpic', '../photos/user/Luigi/0144084.jpg'),
+(9, 16, 'profpic', '../photos/user/ernesto/0077810.jpg'),
+(11, 21, 'profpic', '../photos/user/juan/bird.png'),
+(12, 22, 'profpic', '../photos/user/andy/cat.png'),
+(13, 23, 'profpic', '-'),
+(14, 24, 'profpic', '../photos/user/ped/account.png');
 
 -- --------------------------------------------------------
 
@@ -140,7 +143,9 @@ INSERT INTO `userinfo` (`usr_id`, `usr_name`, `usr_age`, `usr_phone`, `usr_email
 (13, 'Luis Fernando Lomelín Ibarra', 21, '2313213124', 'luigi@email.com', 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1', '', 'Luigi', 0),
 (16, 'Ernesto', 21, '253462156', 'ern@email.com', 'd74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1', '', 'ernesto', 0),
 (21, 'Juanito', 30, '1742047210', 'juan@email.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '', 'juan', 0),
-(22, 'Andres', 21, '73281742189', 'andy@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '', 'andy', 0);
+(22, 'Andres', 21, '73281742189', 'andy@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '', 'andy', 0),
+(23, 'Horacio', 21, '92392103', 'hor@email.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '', 'hor', 0),
+(24, 'Pedro', 35, '213629123', 'pedro@email.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '', 'ped', 0);
 
 --
 -- Indexes for dumped tables
@@ -164,6 +169,7 @@ ALTER TABLE `petinfo`
 -- Indexes for table `photopet`
 --
 ALTER TABLE `photopet`
+  ADD PRIMARY KEY (`id`,`pet_id`),
   ADD KEY `pet_id` (`pet_id`);
 
 --
@@ -190,16 +196,22 @@ ALTER TABLE `petinfo`
   MODIFY `pet_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `photopet`
+--
+ALTER TABLE `photopet`
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `photosuser`
 --
 ALTER TABLE `photosuser`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `usr_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `usr_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables

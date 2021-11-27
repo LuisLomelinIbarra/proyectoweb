@@ -17,7 +17,7 @@
         while($row = $statement->fetch(PDO::FETCH_ASSOC)){
             $return_arr[] = array(
                 "id" => $row['pet_id'],
-                "img" =>  (".." . substr($row['pet_dir'], 27)),
+                "img" =>  $row['pet_dir'],
                 "type" => strtolower($row['pet_type']),
             );
         }

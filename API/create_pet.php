@@ -32,7 +32,7 @@
     $success = $statement->execute();
     if($success){
         echo "success";
-        $uploaddir = $_SERVER['DOCUMENT_ROOT']."/proyectoweb/photos/user/" . $user_data['usr_username'].'/';
+        $uploaddir = "../photos/user/" . $user_data['usr_username'].'/';
         $table = 'petinfo';
         $query = "select * from $table where pet_posterid = '$pet_posterid' limit 1";
         $statement = $conn->prepare($query);

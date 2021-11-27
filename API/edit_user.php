@@ -27,7 +27,7 @@
     $success = $statement->execute();
     if($success){
         echo "success";
-                $uploaddir = $_SERVER['DOCUMENT_ROOT']."/proyectoweb/photos/user/" . $user_data['usr_username'] .'/';
+                $uploaddir = "../photos/user/" . $user_data['usr_username'] .'/';
                 $table = "photosuser";
                 $uploadfile = $uploaddir . basename($_FILES['picture']['name']);
                 //echo $uploaddir;

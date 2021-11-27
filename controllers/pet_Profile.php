@@ -11,17 +11,17 @@
 
     if ($success) {
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $profile_img = $row["usr_dir"];
-        $rest = ".." . substr($profile_img, 27);
+        
+        $rest = $row["usr_dir"];
     }
     
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/API/read_pet.php");
     $userid = $pet['pet_posterid'];
     $pet_id = $pet['pet_id'];
-    
+    include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/API/read_adopted.php");
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/API/read_user.php");
     
-
+    
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/views/petProfile.html");
 
 ?>

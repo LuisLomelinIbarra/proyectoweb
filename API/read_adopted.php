@@ -12,6 +12,7 @@
             //echo "success";
             $isAdopted = $statement -> fetch(PDO::FETCH_ASSOC);
         else {
+            $isAdopted = 0;
             echo "FALLO";
         }
     }

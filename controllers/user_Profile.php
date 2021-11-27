@@ -14,8 +14,7 @@
         if(!isset($row["usr_dir"]) || $row["usr_dir"] == '-' ){
             $rest = "../resources/Assets/account.png";
         }else{
-            $profile_img = $row["usr_dir"];
-            $rest = ".." . substr($profile_img, 27);
+            $rest =  $row["usr_dir"];
         }
         
         

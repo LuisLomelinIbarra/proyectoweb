@@ -28,7 +28,7 @@ if ($success){
         $success = $statement->execute();
         if ($success){
             if(file_exists($_FILES['profpic']['tmp_name'])){
-                $uploaddir = $_SERVER['DOCUMENT_ROOT']."/proyectoweb/photos/user/" . $usr.'/';
+                $uploaddir = "../photos/user/" . $usr.'/';
                 mkdir($uploaddir, 0777, true);
 
                 $uploadfile = $uploaddir . basename($_FILES['profpic']['name']);
@@ -46,7 +46,7 @@ if ($success){
                 $statement = $conn->prepare($query);
                 $success = $statement->execute();
             }else{
-                $uploaddir = $_SERVER['DOCUMENT_ROOT']."/proyectoweb/photos/user/" . $usr.'/';
+                $uploaddir = "../photos/user/" . $usr.'/';
                 mkdir($uploaddir, 0777, true);
                 $query = "select * from $table where usr_username = '$usr' limit 1";
                 $statement = $conn->prepare($query);
