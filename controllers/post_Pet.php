@@ -11,8 +11,7 @@
 
     if ($success) {
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $profile_img = $row["usr_dir"];
-        $rest = ".." . substr($profile_img, 27); 
+        $rest = $row["usr_dir"];
     }
 
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/views/postPet.html");
