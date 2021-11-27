@@ -34,7 +34,7 @@
         echo "success";
         $uploaddir = "../photos/user/" . $user_data['usr_username'].'/';
         $table = 'petinfo';
-        $query = "select * from $table where pet_posterid = '$pet_posterid' limit 1";
+        $query = "select * from $table where pet_posterid = '$pet_posterid' AND pet_name='$name' AND pet_age='$age' AND pet_type='$type' AND pet_breed='$breed' AND pet_color='$color' AND compatibility='$compt' AND isVaccinated='$vacc' AND pet_gender='$gender';";
         $statement = $conn->prepare($query);
         $success = $statement->execute();
         $row = $statement->fetch(PDO::FETCH_ASSOC);      
