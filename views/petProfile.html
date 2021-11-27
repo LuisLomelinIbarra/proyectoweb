@@ -134,6 +134,9 @@
                 <button type="button" class="btn btn-light" style="background-color: rgb(204, 202, 202); margin-left: 70%; margin-top: -5%;">
                   <?php echo (!isset($isAdopted)||!$isAdopted)  ? "<a href='../api/create_adopted.php?usrid=$id&petid=$pet_id'>Adopt</a>" : "<a >Has a Home</a>";?>
                 </button>
+                <?php if($pet['pet_posterid']==$id){
+                  echo "<button type='button' class='btn btn-light' style='background-color: rgb(204, 202, 202); margin-left: 55%; margin-top: -13%;'> <a href='./edit_pet.php?id=$pet_id'>Editar</a> </button>";
+                }?>
               </p>
               
             </div>
