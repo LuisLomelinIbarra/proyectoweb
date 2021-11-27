@@ -17,6 +17,8 @@
     
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/API/read_pet.php");
     $userid = $pet['pet_posterid'];
+    $pet_id = $pet['pet_id'];
+    
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/API/read_user.php");
     
 

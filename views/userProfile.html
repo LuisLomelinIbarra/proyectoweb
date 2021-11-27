@@ -143,13 +143,20 @@
 
         <div class="historial">
           <strong style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Historial de adopcion -------- </strong>
-          <div style="margin-top: 4%; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 17px;">    
-            • qwertyuiopqwertyuiopqwerty
-            <br /><br />
-            • qwertyuiopqwertyuiopqwerty
-            <br /><br />
-            • qwertyuiopqwertyuiopqwerty
-            <br /><br />
+          <div style="margin-top: 4%; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 17px;">
+            <?php
+            
+              if(isset($adoptionList)){
+                foreach($adoptionList as $adp){
+                  
+                  $petn  = $adp['pet_name'];
+                  $date = $adp['adoptionDate'];
+                  echo "• $petn adopted at $date <br /><br />";
+                }
+              }
+            ?>    
+            
+            
           </div>
         </div>
 

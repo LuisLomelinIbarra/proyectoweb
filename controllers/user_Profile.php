@@ -17,11 +17,11 @@
             $profile_img = $row["usr_dir"];
             $rest = ".." . substr($profile_img, 27);
         }
-        var_dump($rest);
+        
         
     }
 
-    
+    include($_SERVER['DOCUMENT_ROOT'] . "/proyectoweb/API/read_adopted.php");
 
 
     include($_SERVER['DOCUMENT_ROOT']."/proyectoweb/views/userProfile.html");

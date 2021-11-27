@@ -119,6 +119,9 @@
                 Poster Contact</a>
             </div>
             <div class="card-body" style="background-color: rgb(252, 252, 252)">
+              
+                
+              
               <p style="margin-top: 2%; margin-left: 8%; font-size: 16px; text-align: left;">
                 <a style=" color: rgb(29, 115, 245);">
                   <?php echo $result['usr_name']; ?>
@@ -128,11 +131,16 @@
                 <br />
                 <?php echo $result['usr_email']; ?>
                 <br />
+                <button type="button" class="btn btn-light" style="background-color: rgb(204, 202, 202); margin-left: 70%; margin-top: -5%;">
+                  <?php echo (!isset($isAdopted))  ? "<a href='../api/create_adopted.php?usrid=$id&petid=$pet_id'>Adopt</a>" : "<a >Has a Home</a>";?>
+                </button>
               </p>
+              
             </div>
+            
           </div>
         </div>
-
+        
         <div class="story">
             <strong style="font-size: 23px;"><?php echo $pet['pet_name']; ?>'s Story</strong>
             <p style="margin-left: 5%; margin-top: 3%; font-size: 19px;">
