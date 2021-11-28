@@ -54,6 +54,9 @@
             var res = document.getElementById("UpdateRes");
             
             res.innerHTML = xmlhttp.responseText;
+            if (xmlhttp.responseText == "Password Reset"){
+                window.location.href="/proyectoweb/controllers/log_in.php";
+            }
         }
 
         window.addEventListener("load", function() {

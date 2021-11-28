@@ -27,15 +27,17 @@
     $success = $statement->execute();
     if($success){
         echo "success";
-                $uploaddir = "../photos/user/" . $user_data['usr_username'] .'/';
-                $table = "photosuser";
-                $uploadfile = $uploaddir . basename($_FILES['picture']['name']);
-                //echo $uploaddir;
-                move_uploaded_file($_FILES['picture']['tmp_name'], $uploadfile);
-                $query = "UPDATE $table set usr_dir='$uploadfile' where usr_id = '$id' and usr_photoname ='profpic';";
-                $statement = $conn->prepare($query);
-                $success = $statement->execute();
-                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                if($_FILES['photo']['name']!=""){
+                    $uploaddir = "../photos/user/" . $user_data['usr_username'] .'/';
+                    $table = "photosuser";
+                    $uploadfile = $uploaddir . basename($_FILES['picture']['name']);
+                    //echo $uploaddir;
+                    move_uploaded_file($_FILES['picture']['tmp_name'], $uploadfile);
+                    $query = "UPDATE $table set usr_dir='$uploadfile' where usr_id = '$id' and usr_photoname ='profpic';";
+                    $statement = $conn->prepare($query);
+                    $success = $statement->execute();
+                    $row = $statement->fetch(PDO::FETCH_ASSOC);
+                }
                 
                 
                 
