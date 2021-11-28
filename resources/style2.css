@@ -19,7 +19,7 @@ body{
 .title{
   position: absolute;
   display: flex;
-  top: 30px;
+  top: 10px;
   left: 30px;
 }
 .title h1{
@@ -38,6 +38,7 @@ body{
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  max-height: 100vh;
 }
 .center h1{
   text-align: center;
@@ -51,12 +52,12 @@ body{
 form .txt_field{
   position: relative;
   border-bottom: 2px solid #adadad;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 .txt_field input{
   width: 100%;
   padding: 0 5px;
-  height: 40px;
+  height: 30px;
   font-size: 16px;
   border: none;
   background: none;
