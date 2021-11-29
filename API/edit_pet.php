@@ -29,7 +29,7 @@
     $vacc=(!isset($_POST['vacc'])) ? $pet['isVaccinated'] : $_POST['vacc'];
     $hist=($_POST['hist'] == "") ? $pet['pet_story'] : $_POST['hist'];
 
-	$query = "UPDATE petinfo SET pet_posterid='$pet_posterid', pet_name='$name', pet_age='$age', pet_type='$type', pet_breed='$breed', pet_color = '$color', pet_story='$hist', isVaccinated = '$vacc', compatibility='$compt', pet_gender='$gender' where pet_id='$pet_id';";
+	$query = 'UPDATE petinfo SET pet_posterid="$pet_posterid", pet_name="$name", pet_age="$age", pet_type="$type", pet_breed="$breed", pet_color = "$color", pet_story="$hist", isVaccinated = "$vacc", compatibility="$compt", pet_gender="$gender" where pet_id="$pet_id";';
     $statement = $conn->prepare($query);
     $success = $statement->execute();
     if($success){
